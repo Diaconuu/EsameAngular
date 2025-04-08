@@ -5,6 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 import {GameService} from '../../services/games.service';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {filter, map} from 'rxjs/operators';
+import {FavoritesService} from '../../services/favorites.service';
 
 @Component({
   selector: 'app-detail-page',
@@ -16,6 +17,7 @@ import {filter, map} from 'rxjs/operators';
 export class DetailPage {
   private route = inject(ActivatedRoute);
   private gameService = inject(GameService);
+  protected favorites = inject(FavoritesService);
 
   private gameId$ = toSignal(
     this.route.paramMap.pipe(
@@ -33,9 +35,13 @@ export class DetailPage {
     return this.game()?.platforms?.map(p => p.platform.name).join(', ') ?? 'N/D';
   }
 
-  protected isFavorite = false;
-
   toggleFavorite() {
+    if (this.game()) {
+      this.favorites.toggleFavorite(this.game()!);
+    }
   }
 
+  isFav() {
+    return this.game() ? this.favorites.isFavorite(this.game()!.id) : false;
+  }
 }

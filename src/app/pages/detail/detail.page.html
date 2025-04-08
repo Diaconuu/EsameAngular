@@ -10,7 +10,7 @@
       <p><strong>Piattaforme:</strong> {{ getPlatformNames() }}</p>
 
       <button (click)="toggleFavorite()">
-        <<!--{{ isFav() ? '❤️ Rimuovi dai preferiti' : '🤍 Aggiungi ai preferiti' }}-->
+        {{ isFav() ? '❤️ Rimuovi dai preferiti' : '🤍 Aggiungi ai preferiti' }}
       </button>
 
       <div class="description" [innerHTML]="g.description"></div>
