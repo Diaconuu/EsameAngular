@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import {SearchService} from '../../services/search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,4 +13,11 @@ import { RouterModule } from '@angular/router';
 export class NavbarComponent {
   @Input() showSearch = true;
   @Input() showFavorites = true;
+
+  protected searchService = inject(SearchService);
+
+  updateSearch(event: Event) {
+    const input = event.target as HTMLInputElement;
+    this.searchService.setQuery(input.value.trim());
+  }
 }

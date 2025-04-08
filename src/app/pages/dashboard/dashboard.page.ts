@@ -4,6 +4,8 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { CarouselComponent } from '../../components/carousel/carousel.component';
 import { CategorySectionComponent } from '../../components/category-section/category-section.component';
 import {GameService} from '../../services/games.service';
+import {GameCardComponent} from '../../components/game-card/game-card.component';
+import {SearchService} from '../../services/search.service';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -12,13 +14,18 @@ import {GameService} from '../../services/games.service';
     CommonModule,
     NavbarComponent,
     CarouselComponent,
-    CategorySectionComponent
+    CategorySectionComponent,
+    GameCardComponent
   ],
   templateUrl: './dashboard.page.html',
   styleUrls: ['./dashboard.page.css'],
 })
 export class DashboardPage {
   protected gameService = inject(GameService);
+  protected searchService = inject(SearchService);
+
+  protected query = this.searchService.query;
+  protected searchResults = this.gameService.searchGamesSignal(this.query);
 
   protected actionGames = this.gameService.getGamesByCategory('action');
   protected sportGames = this.gameService.getGamesByCategory('sports');
