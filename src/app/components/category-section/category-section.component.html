@@ -1,0 +1,11 @@
+<section class="category-section">
+  <h2>{{ title }}</h2>
+
+  <div class="games-grid">
+    @for (game of games; track game.id) {
+      <app-game-card [game]="game" />
+    } @empty {
+      <p>Nessun gioco disponibile.</p>
+    }
+  </div>
+</section>

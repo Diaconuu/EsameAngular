@@ -1,0 +1,40 @@
+<app-navbar [showSearch]="false" />
+@if (game(); as g) {
+  <div class="detail-container">
+    <img class="cover" [src]="g.background_image" alt="{{ g.name }}" />
+
+    <div class="info">
+      <h1>{{ g.name }}</h1>
+      <p class="rating">⭐ {{ g.rating }} / 5</p>
+      <p><strong>Data di uscita:</strong> {{ g.released }}</p>
+      <p><strong>Piattaforme:</strong> {{ getPlatformNames() }}</p>
+
+      <button (click)="toggleFavorite()">
+        {{ isFav() ? '❤️ Rimuovi dai preferiti' : '🤍 Aggiungi ai preferiti' }}
+      </button>
+
+      <div class="description" [innerHTML]="g.description"></div>
+    </div>
+
+    <section class="screenshots">
+      <h2>🖼️ Galleria</h2>
+      <div class="screenshot-grid">
+        @for (shot of screenshots(); track shot.image) {
+          <img [src]="shot.image" alt="Screenshot" />
+        } @empty {
+          <p>Nessuno screenshot disponibile</p>
+        }
+      </div>
+    </section>
+
+    <section class="trailer" *ngIf="trailers().length > 0">
+      <h2>🎬 Trailer</h2>
+      <video width="100%" controls *ngIf="trailers()[0]?.data?.max">
+        <source [src]="trailers()[0].data.max" type="video/mp4" />
+        Il tuo browser non supporta la riproduzione video.
+      </video>
+    </section>
+  </div>
+} @else {
+  <p>Caricamento gioco...</p>
+}

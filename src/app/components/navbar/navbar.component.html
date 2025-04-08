@@ -1,0 +1,20 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <a routerLink="/" class="logo">🎮 GameHub</a>
+  </div>
+
+  <div class="nav-center">
+    @if (showSearch) {
+      <input
+        type="text"
+        placeholder="Cerca un gioco..."
+      />
+    }
+  </div>
+
+  <div class="nav-right">
+    @if (showFavorites) {
+      <a routerLink="/favorites" class="btn">❤️ Preferiti</a>
+    }
+  </div>
+</nav>

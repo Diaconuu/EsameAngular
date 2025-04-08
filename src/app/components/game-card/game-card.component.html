@@ -1,0 +1,10 @@
+<div class="game-card-wrapper">
+  <a class="game-card" [routerLink]="['/detail', game.id]">
+    <img [src]="game.background_image" alt="{{ game.name }}" />
+    <h3>{{ game.name }}</h3>
+  </a>
+
+  <button class="fav-btn" (click)="toggleFavorite()" aria-label="Toggle favorite">
+    {{ isFav() ? '❤️' : '🤍' }}
+  </button>
+</div>
