@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, computed, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameCardComponent } from '../../components/game-card/game-card.component';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import {FavoritesService} from '../../services/favorites.service';
 
 @Component({
   selector: 'app-favorites-page',
@@ -11,6 +12,6 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
   styleUrls: ['./favorites.page.css'],
 })
 export class FavoritesPage {
-  // Da implementare dalla Persona 2
-  protected games: any;
+  protected favorites = inject(FavoritesService);
+  protected games= computed(() => this.favorites.favorites());
 }

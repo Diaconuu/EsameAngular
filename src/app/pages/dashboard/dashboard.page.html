@@ -1,4 +1,17 @@
 <app-navbar />
+
+@if (query(); as q) {
+  <section>
+    <h2>Risultati per "{{ q }}"</h2>
+    <div class="games-grid">
+      @for (game of searchResults(); track game.id) {
+        <app-game-card [game]="game" />
+      } @empty {
+        <p>Nessun gioco trovato.</p>
+      }
+    </div>
+  </section>
+} @else {
 <app-carousel [games]="gameService.getFeaturedGames()" />
 <app-category-section title="Azione" [games]="actionGames()" />
 <app-category-section title="Sport" [games]="sportGames()" />
@@ -8,3 +21,4 @@
 <app-category-section title="Corse" [games]="racingGames()" />
 <app-category-section title="Strategia" [games]="strategyGames()" />
 <app-category-section title="Puzzle" [games]="puzzleGames()" />
+}

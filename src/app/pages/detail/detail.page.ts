@@ -1,6 +1,11 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
+import {ActivatedRoute} from '@angular/router';
+import {GameService} from '../../services/games.service';
+import {toSignal} from '@angular/core/rxjs-interop';
+import {filter, map} from 'rxjs/operators';
+import {FavoritesService} from '../../services/favorites.service';
 
 @Component({
   selector: 'app-detail-page',
@@ -10,18 +15,33 @@ import { NavbarComponent } from '../../components/navbar/navbar.component';
   styleUrls: ['./detail.page.css'],
 })
 export class DetailPage {
-  protected isFavorite = false;
+  private route = inject(ActivatedRoute);
+  private gameService = inject(GameService);
+  protected favorites = inject(FavoritesService);
 
-  toggleFavorite() {
+  private gameId$ = toSignal(
+    this.route.paramMap.pipe(
+      map(params => params.get('id')),
+      filter((id): id is string => id !== null)
+    ),
+    { initialValue: '' }
+  );
 
-  }
+  protected game = this.gameService.getGameById(this.gameId$()!);
+  protected screenshots = this.gameService.getGameScreenshots(this.gameId$()!);
+  protected trailers = this.gameService.getGameTrailers(this.gameId$()!);
 
   getPlatformNames(): string {
-
-    return '';
+    return this.game()?.platforms?.map(p => p.platform.name).join(', ') ?? 'N/D';
   }
 
-  protected game: any;
-  protected screenshots: any;
-  protected trailers: any;
+  toggleFavorite() {
+    if (this.game()) {
+      this.favorites.toggleFavorite(this.game()!);
+    }
+  }
+
+  isFav() {
+    return this.game() ? this.favorites.isFavorite(this.game()!.id) : false;
+  }
 }

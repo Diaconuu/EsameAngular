@@ -5,10 +5,9 @@
 
   <div class="nav-center">
     @if (showSearch) {
-      <input
-        type="text"
-        placeholder="Cerca un gioco..."
-      />
+      <input type="text"
+             placeholder="Cerca un gioco..."
+             (input)="updateSearch($event)" />
     }
   </div>
 
