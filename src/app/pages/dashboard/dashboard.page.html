@@ -12,7 +12,7 @@
     </div>
   </section>
 } @else {
-<app-carousel [games]="gameService.getFeaturedGames()" />
+<app-carousel class="carousel slide" [games]="gameService.getFeaturedGames()" />
 <app-category-section title="Azione" [games]="actionGames()" />
 <app-category-section title="Sport" [games]="sportGames()" />
 <app-category-section title="Avventura" [games]="adventureGames()" />

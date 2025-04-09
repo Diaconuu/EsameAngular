@@ -13,6 +13,9 @@ import {FavoritesService} from '../../services/favorites.service';
 })
 export class GameCardComponent {
   @Input() game!: Game;
+
+  @Input() isActive: boolean = false;
+  
   protected favorites = inject(FavoritesService);
 
   toggleFavorite() {

@@ -11,4 +11,6 @@ import { GameCardComponent } from '../game-card/game-card.component';
 })
 export class CarouselComponent {
   @Input() games: any;
+  //questo aggiunto noi \/ \/
+  @Input() isActive: boolean = false;
 }
