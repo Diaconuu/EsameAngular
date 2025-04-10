@@ -1,4 +1,28 @@
 <app-navbar [showSearch]="false" />
+
+<!-- Navbar Gaming (aggiunta nella Home) -->
+<nav class="gaming-navbar">
+  <div class="logo">
+    <a href="#">GamingZone</a>
+  </div>
+  
+  <ul class="menu">
+   
+
+  </ul>
+
+  <div class="search">
+    <input type="text" placeholder="Cerca giochi..." />
+    <button><i class="fas fa-search"></i></button>
+  </div>
+
+  <!-- Icona Menu per mobile -->
+  <div class="menu-icon">
+    <i class="fas fa-bars"></i>
+  </div>
+</nav>
+
+<!-- Dettagli gioco -->
 @if (game(); as g) {
   <div class="detail-container">
     <img class="cover" [src]="g.background_image" alt="{{ g.name }}" />
@@ -38,3 +62,4 @@
 } @else {
   <p>Caricamento gioco...</p>
 }
+
