@@ -1,11 +1,11 @@
-import {Component, inject} from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
-import {ActivatedRoute} from '@angular/router';
-import {GameService} from '../../services/games.service';
-import {toSignal} from '@angular/core/rxjs-interop';
-import {filter, map} from 'rxjs/operators';
-import {FavoritesService} from '../../services/favorites.service';
+import { FavoritesService } from '../../services/favorites.service';
+import { GameService } from '../../services/games.service';
+import { filter, map } from 'rxjs/operators';
+import { toSignal } from '@angular/core/rxjs-interop';
+import {NavbarComponent} from '../../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-detail-page',
@@ -41,7 +41,7 @@ export class DetailPage {
     }
   }
 
-  isFav() {
+  isFav(): boolean {
     return this.game() ? this.favorites.isFavorite(this.game()!.id) : false;
   }
 }

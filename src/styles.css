@@ -1,44 +1,23 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body{
+body {
     background-image: url(img/test_1.jpg);
+
 }
 
 .obscured{
     background-color: rgba(0, 0, 0, 0.651);
 }
 
-nav {
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    text-decoration: none;
-    background-color: rgb(19, 19, 19);
-    color: white;
-    width: 100%;
-    padding: 1rem 1rem;
-    box-shadow: 10px 10px 10px rgba(39, 39, 39, 0.493);
-}
-
-nav div a {
-    text-decoration: none;
-    color: white;
-    transition: color;
-}
-
-nav div a:hover {
-
-    color: rgb(182, 5, 5);
-}
-
-nav div a:checked {
-    text-decoration: none;
-}
-
-img {
-    width: 50%;
-}
-
+.footer {
+    background-color: #1e1e1e;  
+    color: white;              
+    text-align: center;         
+    padding: 1rem;             
+    font-size: 1rem;            
+    position: relative;
+    bottom: 0;
+    width: 100%;                
+  }
+  
+  .footer p {
+    margin: 0;
+  }

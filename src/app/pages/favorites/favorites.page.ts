@@ -1,8 +1,8 @@
-import {Component, computed, inject} from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FavoritesService } from '../../services/favorites.service';
 import { GameCardComponent } from '../../components/game-card/game-card.component';
-import { NavbarComponent } from '../../components/navbar/navbar.component';
-import {FavoritesService} from '../../services/favorites.service';
+import {NavbarComponent} from '../../components/navbar/navbar.component';
 
 @Component({
   selector: 'app-favorites-page',
@@ -13,5 +13,5 @@ import {FavoritesService} from '../../services/favorites.service';
 })
 export class FavoritesPage {
   protected favorites = inject(FavoritesService);
-  protected games= computed(() => this.favorites.favorites());
+  protected games = computed(() => this.favorites.favorites());
 }

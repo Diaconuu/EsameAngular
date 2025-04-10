@@ -12,13 +12,13 @@
     </div>
   </section>
 } @else {
-<app-carousel class="carousel slide" [games]="gameService.getFeaturedGames()" />
-<app-category-section title="Azione" [games]="actionGames()" />
-<app-category-section title="Sport" [games]="sportGames()" />
-<app-category-section title="Avventura" [games]="adventureGames()" />
-<app-category-section title="Shooter" [games]="shooterGames()" />
-<app-category-section title="Simulazione" [games]="simulationGames()" />
-<app-category-section title="Corse" [games]="racingGames()" />
-<app-category-section title="Strategia" [games]="strategyGames()" />
-<app-category-section title="Puzzle" [games]="puzzleGames()" />
+  <app-carousel [games]="gameService.getFeaturedGames()" />
+  <app-category-section title="Azione" [games]="actionGames()" />
+  <app-category-section title="Sport" [games]="sportGames()" />
+  <app-category-section title="Avventura" [games]="adventureGames()" />
+  <app-category-section title="Shooter" [games]="shooterGames()" />
+  <app-category-section title="Simulazione" [games]="simulationGames()" />
+  <app-category-section title="Corse" [games]="racingGames()" />
+  <app-category-section title="Strategia" [games]="strategyGames()" />
+  <app-category-section title="Puzzle" [games]="puzzleGames()" />
 }

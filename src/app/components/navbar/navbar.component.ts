@@ -1,7 +1,7 @@
 import {Component, inject, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import {SearchService} from '../../services/search.service';
+import { SearchService } from '../../services/search.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,13 +11,13 @@ import {SearchService} from '../../services/search.service';
   styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent {
-  @Input() showSearch = true;
-  @Input() showFavorites = true;
-
   protected searchService = inject(SearchService);
 
   updateSearch(event: Event) {
     const input = event.target as HTMLInputElement;
     this.searchService.setQuery(input.value.trim());
   }
+
+  @Input() showSearch = true;
+  @Input() showFavorites = true;
 }
