@@ -2,7 +2,7 @@ import { Component, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Game } from '../../types/game';
-import {FavoritesService} from '../../services/favorites.service';
+import { FavoritesService } from '../../services/favorites.service';
 
 @Component({
   selector: 'app-game-card',
@@ -19,7 +19,7 @@ export class GameCardComponent {
     this.favorites.toggleFavorite(this.game);
   }
 
-  isFav() {
+  isFav(): boolean {
     return this.favorites.isFavorite(this.game.id);
   }
 }

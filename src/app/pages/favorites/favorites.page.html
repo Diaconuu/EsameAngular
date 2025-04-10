@@ -1,7 +1,7 @@
 <app-navbar [showSearch]="false" [showFavorites]="false" />
 <section class="favorites-page">
   <h2>❤️ I tuoi giochi preferiti</h2>
-
+  <div class="games-grid-container">
   <div class="games-grid">
     @for (game of games(); track game.id) {
       <app-game-card [game]="game" />
@@ -9,4 +9,5 @@
       <p>Non hai ancora aggiunto giochi ai preferiti.</p>
     }
   </div>
+</div>
 </section>

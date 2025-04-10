@@ -1,8 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {GameCardComponent} from '../game-card/game-card.component';
 import { Game } from '../../types/game';
-
+import { GameCardComponent } from '../game-card/game-card.component';
 
 @Component({
   selector: 'app-category-section',
@@ -13,5 +12,5 @@ import { Game } from '../../types/game';
 })
 export class CategorySectionComponent {
   @Input() title = '';
-  @Input() games: Game[]=[];
+  @Input() games: Game[] = [];
 }

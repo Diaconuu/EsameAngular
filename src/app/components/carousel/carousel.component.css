@@ -1,0 +1,72 @@
+/* Selettore specifico per le card dentro il carosello */
+#carouselExampleControls .carousel-item .game-card-wrapper {
+    width: 100%;
+    height: 80%;
+    align-items: center;     
+    margin: 10px;  
+               
+  }
+  
+  #carouselExampleControls .carousel-item ::ng-deep .game-card {
+    display: block;
+    background: #1e1e1e; 
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+    position: relative;
+    width: 100%;             
+    height: 80vh;            
+           
+  }
+  
+  
+  #carouselExampleControls .carousel-item ::ng-deep .game-card:hover {
+    transform: scale(1.05);
+  }
+  
+  #carouselExampleControls .carousel-item ::ng-deep .game-card img {
+    width: 100%;            
+    height: 94%;                   
+    object-fit: cover;        
+  }
+  
+  #carouselExampleControls .carousel-item ::ng-deep .game-card h3{
+    font-size: 1rem;
+    font-style: oblique;
+    margin: 10px;
+    text-align: center;       
+  }
+  
+  ::ng-deep .carousel-container-test h2{
+    margin: 2rem 0;
+    color: beige;
+    font-weight: 800;
+    font-family: monospace;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 3rem;
+  }
+  
+  #carouselExampleControls .carousel-item ::ng-deep .fav-btn {
+    position: absolute;
+    top: 44rem;
+    right: 1rem;
+    border: none;
+    background: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1;
+  }       
+  
+  
+  .carousel-container-test {
+    max-width: 200rem;   
+    margin: 0 auto;       
+    padding: 1rem;        
+    display: flex;        
+    flex-wrap: wrap;      
+    gap: 1rem;            
+    justify-content: center; 
+  }
