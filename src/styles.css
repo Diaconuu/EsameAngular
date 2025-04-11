@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-image: url(img/test_1.jpg);
+
+}
+
+.obscured{
+    background-color: rgba(0, 0, 0, 0.651);
+}
+
+.footer {
+    background-color: #1e1e1e;  
+    color: white;              
+    text-align: center;         
+    padding: 1rem;             
+    font-size: 1rem;            
+    position: relative;
+    bottom: 0;
+    width: 100%;                
+  }
+  
+  .footer p {
+    margin: 0;
+  }

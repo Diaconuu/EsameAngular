@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Game } from '../../types/game';
 import { GameCardComponent } from '../game-card/game-card.component';
 
 @Component({
@@ -10,5 +11,5 @@ import { GameCardComponent } from '../game-card/game-card.component';
   styleUrls: ['./carousel.component.css'],
 })
 export class CarouselComponent {
-  @Input() games: any;
+  @Input() games: Game[] = [];
 }

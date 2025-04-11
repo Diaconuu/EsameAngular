@@ -1,3 +1,4 @@
+
 /* Reset di base */
 * {
     margin: 0;
@@ -355,5 +356,40 @@
     100% {
       transform: translateY(0);
     }
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
+  .info h1 {
+    font-size: 2.5rem;
+  }
+  
+  .rating {
+    font-size: 1.2rem;
+    color: gold;
+  }
+  
+  .description {
+    margin-top: 1rem;
+    line-height: 1.6;
+  }
+  
+  .screenshots {
+    margin-top: 2rem;
+  }
+  
+  .screenshot-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+  }
+  
+  .screenshot-grid img {
+    width: 300px;
+    border-radius: 8px;
+  }
+  
+  .trailer {
+    margin-top: 2rem;
   }
   
