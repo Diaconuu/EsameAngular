@@ -356,8 +356,6 @@
     100% {
       transform: translateY(0);
     }
-    max-height: 400px;
-    object-fit: cover;
   }
   
   .info h1 {
